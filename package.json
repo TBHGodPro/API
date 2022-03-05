@@ -1,0 +1,17 @@
+{
+  "name": "derpdevs",
+  "version": "1.2.2",
+  "description": "A package made by derpdevs (https://derpdevs.repl.co) for access to the derpdevs api and other utilities.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "fs-extra": "^10.0.0",
+    "path": "^0.12.7"
+  }
+}
