@@ -4,6 +4,11 @@ function login(res, redirect) {
 		return 'https://derpdevs.repl.co/api/auth/login?' + new URLSearchParams({redirect:redirect}).toString()
 	}
 
+	if(!res) {
+		console.log('DERPAPI ERROR: No response/window input')
+		return
+	}
+
 	if(res.location.href) {
 
 		redirect = redirect ? redirect : res.location.href
@@ -12,10 +17,7 @@ function login(res, redirect) {
 		
 	} else {
 
-		if(!redirect) {
-			console.log('DERPAPI ERROR: NO REDIRECT')
-			return
-		}
+		redirect = redirect ? redirect : res.req.hostname
 
 		res.redirect(loginRedirect(redirect))
 		
