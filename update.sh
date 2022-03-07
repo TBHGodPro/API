@@ -1,2 +1,0 @@
-npm update derpdevs
-echo 'DERPDEVS PACKAGE UPDATED SUCCESSFULLY'

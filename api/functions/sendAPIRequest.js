@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 async function sendAPIRequest(bot, path, type, data) {
-	const url = `https://${bot ? `${bot}.` : ''}derpdevs.repl.co${path}`
+	const url = `https://${bot ? `${bot}.` : ''}derpdevs.repl.co${path ? path : ''}`
 
 	var type = type ? type.toLowerCase() : null
 	if(type === null) {console.error('DERPAPI ERROR: NO TYPE INPUT'); return undefined}
@@ -27,7 +27,7 @@ async function sendAPIRequest(bot, path, type, data) {
 		})
 
 		const returnData = await axios.get(`${url}?${urlData.substr(1)}`).catch(err => {
-			if(err.isAxiosError) {return {data:`DERPAPI ERROR: Axios error encountered while fetching data from ${url}`}}
+			if(err.isAxiosError) {return {error:`DERPAPI ERROR: Axios error encountered while fetching data from ${url}`}}
 		})
 		
 		return returnData.data

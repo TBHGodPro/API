@@ -1,6 +1,6 @@
 {
   "name": "derpdevs",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A package made by derpdevs (https://derpdevs.repl.co) for access to the derpdevs api and other utilities.",
   "main": "index.js",
   "scripts": {

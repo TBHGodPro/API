@@ -1,7 +1,6 @@
 const fs = require('fs-extra')
 const path = require('path')
 const axios = require('axios')
-const { execFileSync } = require('child_process');
 
 const folders = fs.readdirSync(path.resolve(__dirname, './')).filter(file => file !== 'node_modules' && !file.includes('.'))
 
@@ -19,16 +18,12 @@ folders.forEach(folder => {
 	var data = data.data;
 	
 	var current_version = require(path.resolve(__dirname, './package.json')).version;
+
+	var new_version = data['dist-tags'].latest
 	
-	if(data['dist-tags'].latest !== current_version) {
-		
-		console.warn(`NPM PACKAGE: DERPDEVS: CURRENT VERSION: ${current_version}, LATEST VERSION: ${data['dist-tags'].latest}.`);
-		
-		console.warn('UPDATING DERPDEVS PACKAGE...');
+	if(new_version !== current_version) {
 
-		
-		execFileSync(path.resolve(__dirname, './update.sh'));
-
+		console.log(`DERPAPI WARNING: Incorrect version for package:\nCurrent: ${current_version}\nNewest: ${new_version}`)
 		
 	};
 	
